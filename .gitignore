@@ -1,0 +1,6 @@
+/node_modules/
+/.venv/
+/__pycache__/
+/tests/__pycache__/
+/.pytest_cache/
+/docs/screenshots/*.tmp.png

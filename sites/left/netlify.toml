@@ -1,0 +1,5 @@
+# Netlify: set this site's base directory to sites/left in the UI, and this
+# file is picked up from there. No build step; the public/ tree is served as is.
+[build]
+  publish = "public"
+  command = ""

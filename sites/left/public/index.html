@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" data-side="left" data-other="https://myrightnut.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Left Nut — the one that hangs lower</title>
+  <meta name="description" content="The official website of the left one. Hangs lower. Works harder. Asks for nothing.">
+  <meta name="color-scheme" content="dark light">
+  <meta property="og:title" content="My Left Nut">
+  <meta property="og:description" content="Hangs lower. Works harder. Asks for nothing.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://myleftnut.org/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://myleftnut.org/">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="/">my<b>left</b>nut<span>.org</span></a>
+    <nav><a class="switch" href="https://myrightnut.org/">Switch to the other one →</a></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="orb-wrap">
+        <div class="orb" id="orb" role="button" tabindex="0"
+             aria-label="A large round orb, hanging slightly lower than its sibling. Press to boop it."></div>
+      </div>
+      <div class="copy">
+        <p class="eyebrow">You are currently viewing</p>
+        <h1>The <em>Left</em> One</h1>
+        <p class="tagline">Hangs lower. Works harder. Asks for nothing.</p>
+        <p class="lede">
+          In most people the left one sits a little lower than the right.
+          Anatomists point at the longer left vein. We call it reach.
+        </p>
+        <p class="boops" id="boops" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Details">
+      <article class="card">
+        <h2>Status</h2>
+        <dl class="status">
+          <dt>This one</dt>
+          <dd>present · attached · unbothered</dd>
+          <dt>Position</dt>
+          <dd>lower than advertised</dd>
+          <dt>Sibling</dt>
+          <dd><span class="dot" id="sibling-dot" data-state="pending"></span><span id="sibling-text">checking…</span></dd>
+          <dt>Colour</dt>
+          <dd>red, because port is left</dd>
+        </dl>
+      </article>
+
+      <article class="card">
+        <h2>Ask the nuts</h2>
+        <p>Can't decide which one should handle it? Neither can we. Flip for it.</p>
+        <div class="flip-row">
+          <input id="question" type="text" maxlength="120" placeholder="What needs deciding? (optional)" aria-label="What needs deciding?">
+          <button id="flip" type="button">Flip</button>
+        </div>
+        <p class="verdict" id="verdict" aria-live="polite"></p>
+        <p class="tally" id="tally"></p>
+      </article>
+
+      <article class="card">
+        <h2>Things we would like on the record</h2>
+        <ul>
+          <li>The left one usually hangs lower. This is a documented feature, not a defect.</li>
+          <li>The leading theory is that hanging at different heights stops the two from knocking together when you walk. Engineering.</li>
+          <li>There is no scientific name for the left one hanging lower. We are proposing “the left lean”.</li>
+          <li><a href="https://myrightnut.org/">myrightnut.org</a> exists. We are legally obliged to mention this.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Which side are you on?</h2>
+        <p id="pledge-text"></p>
+        <p><button id="pledge" type="button" class="ghost">Pledge allegiance to the left one</button></p>
+      </article>
+
+      <article class="card psa">
+        <h2>A sincere note from a silly website</h2>
+        <p>
+          Both of yours deserve a once-over about once a month. A new lump, swelling,
+          a dull ache, or one that has changed size: book a doctor, not a search engine.
+          Testicular cancer is among the most treatable cancers when it is caught early,
+          and it is most common in people under 40.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 ChiefGyk3D · Not medical advice. Not affiliated with any actual nuts.</p>
+    <p><a href="https://github.com/ChiefGyk3D/nuts-dot-org">Source</a> · <a href="https://myrightnut.org/">The other one</a></p>
+  </footer>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>

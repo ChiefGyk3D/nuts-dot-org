@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" data-side="right" data-other="https://myleftnut.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Right Nut — the correct one</title>
+  <meta name="description" content="The official website of the right one. Sits higher. Has opinions. Right in name only.">
+  <meta name="color-scheme" content="dark light">
+  <meta property="og:title" content="My Right Nut">
+  <meta property="og:description" content="Sits higher. Has opinions. Right in name only.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://myrightnut.org/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://myrightnut.org/">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="/">my<b>right</b>nut<span>.org</span></a>
+    <nav><a class="switch" href="https://myleftnut.org/">← Switch to the other one</a></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="orb-wrap">
+        <div class="orb" id="orb" role="button" tabindex="0"
+             aria-label="A large round orb, sitting slightly higher than its sibling. Press to boop it."></div>
+      </div>
+      <div class="copy">
+        <p class="eyebrow">You are currently viewing</p>
+        <h1>The <em>Right</em> One</h1>
+        <p class="tagline">Sits higher. Has opinions. Right in name only.</p>
+        <p class="lede">
+          In most people the right one sits a little higher than the left.
+          Anatomists call it asymmetry. We prefer “elevated”.
+        </p>
+        <p class="boops" id="boops" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Details">
+      <article class="card">
+        <h2>Status</h2>
+        <dl class="status">
+          <dt>This one</dt>
+          <dd>present · attached · smug</dd>
+          <dt>Position</dt>
+          <dd>higher, obviously</dd>
+          <dt>Sibling</dt>
+          <dd><span class="dot" id="sibling-dot" data-state="pending"></span><span id="sibling-text">checking…</span></dd>
+          <dt>Colour</dt>
+          <dd>green, because starboard is right</dd>
+        </dl>
+      </article>
+
+      <article class="card">
+        <h2>Ask the nuts</h2>
+        <p>Can't decide which one should handle it? Neither can we. Flip for it.</p>
+        <div class="flip-row">
+          <input id="question" type="text" maxlength="120" placeholder="What needs deciding? (optional)" aria-label="What needs deciding?">
+          <button id="flip" type="button">Flip</button>
+        </div>
+        <p class="verdict" id="verdict" aria-live="polite"></p>
+        <p class="tally" id="tally"></p>
+      </article>
+
+      <article class="card">
+        <h2>Things we would like on the record</h2>
+        <ul>
+          <li>The right one usually sits higher. Higher is closer to the heart. Make of that what you will.</li>
+          <li>On average the right one is marginally bigger. This is in the literature. We did not put it there.</li>
+          <li>“Right” is a direction, a legal entitlement and a moral position. “Left” is a direction.</li>
+          <li><a href="https://myleftnut.org/">myleftnut.org</a> exists. It hangs lower, and it knows it.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Which side are you on?</h2>
+        <p id="pledge-text"></p>
+        <p><button id="pledge" type="button" class="ghost">Pledge allegiance to the right one</button></p>
+      </article>
+
+      <article class="card psa">
+        <h2>A sincere note from a silly website</h2>
+        <p>
+          Both of yours deserve a once-over about once a month. A new lump, swelling,
+          a dull ache, or one that has changed size: book a doctor, not a search engine.
+          Testicular cancer is among the most treatable cancers when it is caught early,
+          and it is most common in people under 40.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 ChiefGyk3D · Not medical advice. Not affiliated with any actual nuts.</p>
+    <p><a href="https://github.com/ChiefGyk3D/nuts-dot-org">Source</a> · <a href="https://myleftnut.org/">The other one</a></p>
+  </footer>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
