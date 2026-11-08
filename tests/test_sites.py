@@ -75,7 +75,7 @@ class Page(HTMLParser):
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         a = dict(attrs)
         self.tags.append((tag, a))
-        if "id" in a and a["id"]:
+        if a.get("id"):
             self.ids.append(a["id"])
         if tag not in VOID:
             self.stack.append(tag)
@@ -149,8 +149,8 @@ def test_netlify_config_per_side() -> None:
     """Break: set publish = "dist" in one netlify.toml."""
     for side in SIDES:
         toml = (SITES / side / "netlify.toml").read_text()
-        assert re.search(r'^\s*publish\s*=\s*"public"\s*$', toml, re.M), side
-        assert re.search(r'^\s*command\s*=\s*""\s*$', toml, re.M), side
+        assert re.search(r'^\s*publish\s*=\s*"public"\s*$', toml, re.MULTILINE), side
+        assert re.search(r'^\s*command\s*=\s*""\s*$', toml, re.MULTILINE), side
 
 
 # ---------------------------------------------------------------------------
@@ -316,13 +316,16 @@ def test_workflow_actions_are_pinned_to_commits() -> None:
     """
     for wf in (ROOT / ".github" / "workflows").glob("*.yml"):
         text = wf.read_text()
-        uses = re.findall(r"^\s*-?\s*uses:\s*(\S+)(.*)$", text, re.M)
+        uses = re.findall(r"^\s*-?\s*uses:\s*(\S+)(.*)$", text, re.MULTILINE)
         assert uses, wf
         for ref, rest in uses:
             assert re.fullmatch(r"[\w.-]+/[\w.-]+(/[\w.-]+)*@[0-9a-f]{40}", ref), f"{wf.name}: {ref} is not SHA-pinned"
             assert re.search(r"#\s*v\d", rest), f"{wf.name}: {ref} has no version comment"
-        assert re.search(r"^permissions:\s*\n\s+contents:\s*read", text, re.M), f"{wf.name}: permissions"
-        assert "persist-credentials: false" in text, f"{wf.name}: checkout keeps credentials"
+        assert re.search(r"^permissions:\s*\n\s+contents:\s*read", text, re.MULTILINE), f"{wf.name}: permissions"
+        # A caller of a reusable workflow has no checkout of its own; every
+        # checkout that is here must drop the token.
+        checkouts = len(re.findall(r"^\s*-?\s*uses:\s*actions/checkout@", text, re.MULTILINE))
+        assert text.count("persist-credentials: false") >= checkouts, f"{wf.name}: checkout keeps credentials"
 
 
 def test_readme_names_both_domains_and_both_hosts() -> None:
