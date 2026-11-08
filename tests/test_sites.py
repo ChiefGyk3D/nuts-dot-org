@@ -322,7 +322,10 @@ def test_workflow_actions_are_pinned_to_commits() -> None:
             assert re.fullmatch(r"[\w.-]+/[\w.-]+(/[\w.-]+)*@[0-9a-f]{40}", ref), f"{wf.name}: {ref} is not SHA-pinned"
             assert re.search(r"#\s*v\d", rest), f"{wf.name}: {ref} has no version comment"
         assert re.search(r"^permissions:\s*\n\s+contents:\s*read", text, re.M), f"{wf.name}: permissions"
-        assert "persist-credentials: false" in text, f"{wf.name}: checkout keeps credentials"
+        # A caller of a reusable workflow has no checkout of its own; every
+        # checkout that is here must drop the token.
+        checkouts = len(re.findall(r"^\s*-?\s*uses:\s*actions/checkout@", text, re.M))
+        assert text.count("persist-credentials: false") >= checkouts, f"{wf.name}: checkout keeps credentials"
 
 
 def test_readme_names_both_domains_and_both_hosts() -> None:
